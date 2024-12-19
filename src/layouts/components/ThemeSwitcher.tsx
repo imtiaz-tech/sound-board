@@ -12,7 +12,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
 
   return (
     <>
-      {theme_switcher && (
+      {/* {theme_switcher && (
         <div className={`theme-switcher ${className}`}>
           <input
             id="theme-switcher"
@@ -55,7 +55,7 @@ const ThemeSwitcher = ({ className }: { className: string }) => {
             </span>
           </label>
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -1,4 +1,4 @@
----
+<!-- ---
 enable: true
 title: "Ready to build your next project with Next?"
 image: "/images/call-to-action.png"
@@ -7,4 +7,4 @@ button:
   enable: true
   label: "Get Started Now"
   link: "https://github.com/zeon-studio/nextplate"
----
+--- -->

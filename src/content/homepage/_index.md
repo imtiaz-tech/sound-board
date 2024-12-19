@@ -1,19 +1,19 @@
 ---
 # Banner
-banner:
-  title: "The Ultimate Starter Template You Need To Start Your Next Project"
-  content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
-  image: "/images/banner.png"
-  button:
-    enable: true
-    label: "Get Started For Free"
-    link: "https://github.com/zeon-studio/nextplate"
+# banner:
+#   title: "The Ultimate Starter Template You Need To Start Your Next Project"
+#   content: "Nextplate is a free starter template built with Next and TailwindCSS, providing everything you need to jumpstart your Next project and save valuable time."
+#   image: "/images/banner.png"
+#   button:
+#     enable: true
+#     label: "Get Started For Free"
+#     link: "https://github.com/zeon-studio/nextplate"
 
 # Features
 features:
-  - title: "What's Included in Nextplate"
-    image: "/images/service-1.png"
-    content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
+  # - title: "What's Included in Nextplate"
+  #   image: "/images/service-1.png"
+  #   content: "Nextplate is a comprehensive starter template that includes everything you need to get started with your Next project. What's Included in Nextplate"
     bulletpoints:
       - "10+ Pre-build pages"
       - "95+ Google Pagespeed Score"

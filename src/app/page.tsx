@@ -12,14 +12,14 @@ const Home = () => {
   const homepage = getListPage("homepage/_index.md");
   const testimonial = getListPage("sections/testimonial.md");
   const callToAction = getListPage("sections/call-to-action.md");
-  const { frontmatter } = homepage;
-  const {
-    banner,
-    features,
-  }: {
-    banner: { title: string; image: string; content?: string; button?: Button };
-    features: Feature[];
-  } = frontmatter;
+  // const { frontmatter } = homepage;
+  // const {
+  //   banner,
+  //   features,
+  // }: {
+  //   banner: { title: string; image: string; content?: string; button?: Button };
+  //   features: Feature[];
+  // } = frontmatter;
 
   return (
     <>
@@ -28,15 +28,16 @@ const Home = () => {
         <div className="container">
           <div className="row justify-center">
             <div className="lg:col-7 md:col-9 mb-8 text-center">
-              <h1
+              <h1>HOME PAGE</h1>
+              {/* <h1
                 className="mb-4 text-h3 lg:text-h1"
                 dangerouslySetInnerHTML={markdownify(banner.title)}
-              />
-              <p
+              /> */}
+              {/* <p
                 className="mb-8"
                 dangerouslySetInnerHTML={markdownify(banner.content ?? "")}
-              />
-              {banner.button!.enable && (
+              /> */}
+              {/* {banner.button!.enable && (
                 <Link
                   className="btn btn-primary"
                   href={banner.button!.link}
@@ -47,9 +48,9 @@ const Home = () => {
                 >
                   {banner.button!.label}
                 </Link>
-              )}
+              )} */}
             </div>
-            {banner.image && (
+            {/* {banner.image && (
               <div className="col-12">
                 <ImageFallback
                   src={banner.image}
@@ -60,12 +61,12 @@ const Home = () => {
                   priority
                 />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </section>
 
-      {features.map((feature, index: number) => (
+      {/* {features.map((feature, index: number) => (
         <section
           key={index}
           className={`section-sm ${index % 2 === 0 && "bg-gradient"}`}
@@ -117,10 +118,10 @@ const Home = () => {
             </div>
           </div>
         </section>
-      ))}
+      ))} */}
 
-      <Testimonials data={testimonial} />
-      <CallToAction data={callToAction} />
+      {/* <Testimonials data={testimonial} />
+      <CallToAction data={callToAction} /> */}
     </>
   );
 };

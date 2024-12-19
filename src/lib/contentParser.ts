@@ -21,16 +21,16 @@ export const getListPage = (filePath: string) => {
   const pageDataPath = path.join(contentPath, filePath);
 
   if (!fs.existsSync(pageDataPath)) {
-    notFound();
+    // notFound();
   }
 
   const pageData = readFile(pageDataPath);
-  const { content, data: frontmatter } = matter(pageData);
+  // const { content, data: frontmatter } = matter(pageData);
 
-  return {
-    frontmatter: parseFrontmatter(frontmatter),
-    content,
-  };
+  // return {
+  //   frontmatter: parseFrontmatter(frontmatter),
+  //   content,
+  // };
 };
 
 // get all single pages, ex: blog/post.md
@@ -38,7 +38,7 @@ export const getSinglePage = (folder: string) => {
   const folderPath = path.join(contentPath, folder);
 
   if (!fs.existsSync(folderPath) || !fs.lstatSync(folderPath).isDirectory()) {
-    notFound();
+    // notFound();
   }
 
   const filesPath = fs.readdirSync(folderPath);

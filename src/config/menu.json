@@ -5,15 +5,15 @@
       "url": "/"
     },
     {
-      "name": "About",
+      "name": "Just Added",
       "url": "/about"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Upload",
+      "url": "/upload"
     },
     {
-      "name": "Pages",
+      "name": "Categories",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -37,6 +37,7 @@
           "name": "Tags",
           "url": "/tags"
         },
+
         {
           "name": "404 Page",
           "url": "/404"

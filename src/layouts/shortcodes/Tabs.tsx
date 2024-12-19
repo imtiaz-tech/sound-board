@@ -45,7 +45,7 @@ function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
   return (
     <div className="tab">
       <ul className="tab-nav" role="tablist">
-        {children.map((item, index) => (
+        {/* {children.map((item, index) => (
           <li
             key={index}
             className={`tab-nav-item ${index === active ? "active" : ""}`}
@@ -63,17 +63,17 @@ function Tabs({ children }: { children: ReactElement<TabProps>[] }) {
           >
             {item.props.name}
           </li>
-        ))}
+        ))} */}
       </ul>
 
-      {children.map((data, index) => (
+      {/* {children.map((data, index) => (
         <div
           key={index}
           className={`tab-content ${index === active ? "block" : "hidden"}`}
         >
           {data.props.children}
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

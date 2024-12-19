@@ -29,10 +29,9 @@
 
   "navigation_button": {
     "enable": true,
-    "label": "Get Started",
-    "link": "https://github.com/zeon-studio/nextplate"
+    "label": "Login",
+    "link": "/login"
   },
-
   "disqus": {
     "enable": true,
     "shortname": "themefisher-template",

@@ -7,22 +7,23 @@ import { RegularPage } from "@/types";
 
 const About = () => {
   const data: RegularPage = getListPage("about/_index.md");
-  const { frontmatter, content } = data;
-  const { title, meta_title, description, image } = frontmatter;
+  // const { frontmatter, content } = data;
+  // const { title, meta_title, description, image } = frontmatter;
 
   return (
     <>
       <SeoMeta
-        title={title}
-        meta_title={meta_title}
-        description={description}
-        image={image}
+        // title={title}
+        // meta_title={meta_title}
+        // description={description}
+        // image={image}
       />
       <section className="section-sm">
         <div className="container">
           <div className="row justify-center">
             <div className="text-center md:col-10 lg:col-7">
-              {image && (
+            <h1>ABOUT PAGE</h1>
+              {/* {image && (
                 <ImageFallback
                   className="mx-auto mb-6 rounded-lg"
                   src={image}
@@ -30,14 +31,14 @@ const About = () => {
                   height={200}
                   alt={title}
                 />
-              )}
+              )} */}
               <h2
-                dangerouslySetInnerHTML={markdownify(title)}
-                className="h3 mb-6"
+                // dangerouslySetInnerHTML={markdownify(title)}
+                // className="h3 mb-6"
               />
-              <div className="content">
+              {/* <div className="content">
                 <MDXContent content={content} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

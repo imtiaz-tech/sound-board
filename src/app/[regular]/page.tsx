@@ -25,12 +25,12 @@ const RegularPages = async (props: { params: Promise<{ regular: string }> }) => 
   const data = regularData.filter(
     (page: RegularPage) => page.slug === params.regular,
   )[0];
-  const { frontmatter, content } = data;
-  const { title, meta_title, description, image } = frontmatter;
+  // const { frontmatter, content } = data;
+  // const { title, meta_title, description, image } = frontmatter;
 
   return (
     <>
-      <SeoMeta
+      {/* <SeoMeta
         title={title}
         meta_title={meta_title}
         description={description}
@@ -43,7 +43,7 @@ const RegularPages = async (props: { params: Promise<{ regular: string }> }) => 
             <MDXContent content={content} />
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 };
