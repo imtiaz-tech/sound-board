@@ -1,5 +1,6 @@
 "use client";
 
+import RootLayout from "@/app/layout";
 import Logo from "@/components/Logo";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
 import config from "@/config/config.json";
@@ -164,3 +165,5 @@ const Header = () => {
 };
 
 export default Header;
+
+Header.getLayout = (page: any) => <RootLayout>{page}</RootLayout>;

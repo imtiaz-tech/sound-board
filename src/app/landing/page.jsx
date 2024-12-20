@@ -4,9 +4,10 @@ import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction";
 import SeoMeta from "@/partials/SeoMeta";
 import Testimonials from "@/partials/Testimonials";
-import { Button, Feature } from "@/types";
+// import { Button, Feature } from "@/types";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
+import RootLayout from "./layout";
 
 const Home = () => {
   const homepage = getListPage("homepage/_index.md");
@@ -127,3 +128,5 @@ const Home = () => {
 };
 
 export default Home;
+
+Home.getLayout = (page) => <RootLayout>{page}</RootLayout>;

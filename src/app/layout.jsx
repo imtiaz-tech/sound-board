@@ -5,13 +5,10 @@ import TwSizeIndicator from "@/helpers/TwSizeIndicator";
 import Footer from "@/partials/Footer";
 import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
+import StoreProvider from "./storeProvider";
 import "@/styles/main.scss";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   // import google font css
   const pf = theme.fonts.font_family.primary;
   const sf = theme.fonts.font_family.secondary;
@@ -57,12 +54,11 @@ export default function RootLayout({
 
       <body suppressHydrationWarning={true}>
         <TwSizeIndicator />
-        <Providers>
-          <Header />
-          <SearchModal />
-          <main>{children}</main>
-          <Footer />
-        </Providers>
+        <StoreProvider>
+          <Providers>
+            <main>{children}</main>
+          </Providers>
+        </StoreProvider>
       </body>
     </html>
   );
