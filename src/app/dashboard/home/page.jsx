@@ -1,42 +1,35 @@
 "use client";
+
 import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
-import signup from "../../signup/page";
+// import { signup } from "../../redux/auth";
 
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [soundName, setSoundName] = useState("");
   const [color, setColor] = useState("#FF0000");
   const [soundFile, setSoundFile] = useState(null);
+  const [category, setCategory] = useState("");
   const [errorText, setErrorText] = useState("");
 
   const dispatch = useDispatch();
 
-  function validateEmail(emailField) {
-    const reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-    return reg.test(emailField);
-  }
-
   const onRegister = async () => {
-    const isValid = validateEmail(email);
-    if (name === "") {
-      setErrorText("Name is required");
-    } else if (email === "") {
-      setErrorText("Email is required");
-    } else if (!isValid) {
-      setErrorText("Email is not valid");
-      return;
+    if (!soundName) {
+      setErrorText("Sound Name is required");
     } else if (!soundFile) {
       setErrorText("Sound file is required");
+    } else if (!color) {
+      setErrorText("Color is required");
+    } else if (!category) {
+      setErrorText("Category is required");
     } else {
-      const userData = { name, email, password, color, soundFile };
+      const userData = { soundName, color, soundFile, category };
       dispatch(signup(userData)).then(({ payload }) => {
         if (payload?.success) {
-          <Link href="/login"></Link>;
+          router.push("/login");
         } else {
-          setErrorText(payload?.message);
+          setErrorText(payload?.message || "Signup failed");
         }
       });
     }
@@ -46,11 +39,13 @@ const Signup = () => {
     setErrorText("");
     const { name, value } = e.target;
     if (name === "username") {
-      setName(value);
-    } else if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
+      setSoundName(value);
+    } else if (name === "soundFile") {
+      setSoundFile(value);
+    } else if (name === "color") {
+      setColor(value);
+    } else if (name === "category") {
+      setCategory(value);
     }
   };
 
@@ -64,22 +59,21 @@ const Signup = () => {
 
   return (
     <Fragment>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-black-100">
-        <div className="p-8 rounded-lg shadow-md w-full max-w-md bg-black-100 border border-gray-300">
-          {/* <h2 className="text-2xl font-bold text-center mb-6">Sign-Up</h2> */}
+      <div className="min-h-screen flex flex-col items-center justify-center bg-black">
+        <div className="p-8 rounded-lg shadow-md w-full max-w-md bg-black border border-gray-300">
           <div className="space-y-4">
-            <label htmlFor="name" className="block text-white-700 font-medium">
+            <label htmlFor="name" className="block text-white font-medium">
               Name of Sound
             </label>
             <input
               type="text"
               name="username"
-              value={name}
+              value={soundName}
               onChange={handleInputChange}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
 
-            <label htmlFor="sound" className="block text-white-700 font-medium">
+            <label htmlFor="sound" className="block text-white font-medium">
               Sound File
             </label>
             <input
@@ -89,7 +83,7 @@ const Signup = () => {
               className="w-full px-4 py-2 border border-gray-300 rounded-lg"
             />
 
-            <label htmlFor="color" className="block text-white-700 font-medium">
+            <label htmlFor="color" className="block text-white font-medium">
               Pick a Color
             </label>
             <input
@@ -100,20 +94,27 @@ const Signup = () => {
               className="w-full h-10"
             />
 
+            <label htmlFor="category" className="block text-white font-medium">
+              Category
+            </label>
+            <select
+              name="category"
+              value={category}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              <option value="" disabled>
+                Select a category
+              </option>
+              <option value="Music">Music</option>
+              <option value="Podcast">Podcast</option>
+              <option value="Audiobook">Audiobook</option>
+              <option value="Sound Effects">Sound Effects</option>
+            </select>
+
             {errorText && (
               <p className="text-sm text-red-500 text-center">{errorText}</p>
             )}
-            <label htmlFor="name" className="block text-white-700 font-medium">
-              Category
-            </label>
-            <input
-              type="text"
-              name="username"
-              placeholder="Select Category"
-              value={name}
-              onChange={handleInputChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-            />
           </div>
           <div className="mt-6">
             <button

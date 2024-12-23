@@ -6,14 +6,11 @@ import axios from "./axios";
 export const signin = createAsyncThunk(
   "auth/signin",
   async (data, { rejectWithValue }) => {
-    console.log("🚀 ~ data:", data);
     try {
       const res = await axios.post("/auth/signin", data);
-      console.log("🚀 ~ res:", res);
       const response = await res.data;
       return response;
     } catch (error) {
-      console.log("🚀 ~ error:", error);
       return rejectWithValue(error.response.data);
     }
   },
@@ -21,7 +18,6 @@ export const signin = createAsyncThunk(
 export const signup = createAsyncThunk(
   "auth/signup",
   async (signupData, { rejectWithValue }) => {
-    console.log("🚀 ~ signupData:", signupData);
     try {
       const res = await axios.post("/auth/signup", signupData);
       const data = await res.data;

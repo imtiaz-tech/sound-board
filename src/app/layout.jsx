@@ -1,3 +1,5 @@
+"use client";
+
 import SearchModal from "@/components/SearchModal";
 import config from "@/config/config.json";
 import theme from "@/config/theme.json";
@@ -7,7 +9,8 @@ import Header from "@/partials/Header";
 import Providers from "@/partials/Providers";
 import StoreProvider from "./storeProvider";
 import "@/styles/main.scss";
-
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor } from "../redux/store";
 export default function RootLayout({ children }) {
   // import google font css
   const pf = theme.fonts.font_family.primary;
@@ -55,9 +58,11 @@ export default function RootLayout({ children }) {
       <body suppressHydrationWarning={true}>
         <TwSizeIndicator />
         <StoreProvider>
-          <Providers>
-            <main>{children}</main>
-          </Providers>
+          <PersistGate loading={null} persistor={persistor}>
+            <Providers>
+              <main>{children}</main>
+            </Providers>
+          </PersistGate>
         </StoreProvider>
       </body>
     </html>
